@@ -4,7 +4,12 @@
     <!--[if gte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]--> 
     <!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" /><![endif]--> 
 <meta charset="utf-8" />
-    <title>JavaScript: You don't need a framework for that</title>    
+    <title>Slide Deck</title>
+<!--
+Made by: Estelle Weyl
+Based on: 5lides by Pamela Fox
+Copyright:  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike 
+-->    
 <style>
 body {
 	font-size: 20px;
@@ -363,7 +368,7 @@ div:not(.current).reduced {
 <div id="topinfo"></div>
 <!-- footer instructions -->  
 <div id="info">
-    <p><a href="http://standardista.com">Estelle Weyl</a> | <a href="http://twitter.com/estellevw">@estellevw</a> | <a href="http://github.com/estelle">Github</a> | Press <span class="key">&rarr;</span> key to advance.</p>
+    <p><a href="http://standardista.com">Estelle Weyl</a> | <a href="http://twitter.com/estellevw">@estellevw</a> | <a href="http://github.com/estelle">Github</a> | Press <span class="key">&rarr;</span> to advance, <span class="key">2</span> for comments, <span class="key">4</span> to read/write notes.</p>
 </div>
 
   <div id="presentation">
@@ -720,13 +725,10 @@ SlideShow.prototype = {
  showNotes: function() {
     var isOn = this._notesOn = !this._notesOn;
     query('.notes').forEach(function(el) {
-      el.style.display = (isOn) ? 'block' : 'none';
+      el.style.display = (isOn) ? '' : 'none';
     });
   },
 
-    switch3D: function() {
-    toggleClass(document.body, 'three-d');
-  },
 
     handleWheel: function(e) {
     var delta = 0;
@@ -766,8 +768,6 @@ SlideShow.prototype = {
 		  case 50: // 2
 		  case 190: // 2
 			 this.showNotes(); break;
-		  case 51: // 3
-			 this.switch3D(); break;
     	}
     },
 	
