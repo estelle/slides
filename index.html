@@ -762,7 +762,7 @@ SlideShow.prototype = {
 		if(B && B > A){	 
 		    firstPartOfKey = path.substring(A, B);
 		} else {
-		    firstPartOfKey = path || 'home';	
+		    firstPartOfKey = path.substring(1, path.length) || 'home';	
 		}
 		//console.log(firstPartOfKey);
 		key = firstPartOfKey +  window.location.hash;
