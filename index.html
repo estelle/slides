@@ -7,10 +7,11 @@
     <title>Slide Deck</title>
 <!--
 Made by: Estelle Weyl
-Based on: 5lides by Pamela Fox
+Based on: 5lides by Pamela Fox  http://5lide-maker.appspot.com
 Copyright:  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike 
 -->    
 <style>
+html {font-size: 62.5%;}
 body {
 	font-size: 20px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif, 'Droid Sans';
@@ -133,13 +134,16 @@ body {
 .content input, button {
 	font-size: 140%;
 }
-.mynotes {
+.slide textarea.mynotes {
 		-webkit-appearance: none;
-		border: 1px #ccc dotted;
+		border: 1px #aaa solid;
 		border-radius: 5px;
 		width: 100%;
 		font-size: 18px;
 		font-style: italic;
+		box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+		padding: 5px;
+		box-sizing: border-box;
 		font-family:"Palatino Linotype", "Book Antiqua", Palatino, cursive,serif;
 	 }
 .content td {
@@ -164,12 +168,8 @@ margin-bottom: 10px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
 	text-align: center;
 }
-.slide:nth-child(even) {
-}
-.slide:nth-child(odd) {
-}
-.slide p, .slide textarea {
-font-size: 120%;
+.slide p{
+	font-size: 1.2rem;
 }
 .slide .counter {
 	color: #999999;
@@ -211,13 +211,7 @@ font-size: 120%;
 	display: block;
 	margin-left: 1500px;
 }
-body.three-d div.slides {
-	-webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
-	-moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
-	-ms-transform: translateX(50px) scale(0.8) rotateY(10deg);
-	-o-transform: translateX(50px) scale(0.8) rotateY(10deg);
-	transform: translateX(50px) scale(0.8) rotateY(10deg);
-}
+
 /* Content */
 
 header {
@@ -285,10 +279,6 @@ div.example {
 	margin-bottom: 10px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 }
-video {;
-	border-radius: 8px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-}
 #presentation-counter {
 	color: #ccc;
 	font-size: 70%;
@@ -299,24 +289,24 @@ video {;
 	width: 100%;
 	text-align: center;
 }
-div:not(.current).reduced {
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	-ms-transform: scale(0.8);
-	-o-transform: scale(0.8);
-	transform: scale(0.8);
+#next, 
+#back {
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style-type: none;
+	-webkit-appearance: none;
+	color: #333;
+	font-size: 20px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	background: -webkit-linear-gradient(#fff 50%, #eee 50%, #ddd);
+	border-radius: 15px;
+	border: none;
+	padding: 5px 10px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
-.no-transitions {
-	-webkit-transition: none;
-	-moz-transition: none;
-	-ms-transition: none;
-	-o-transition: none;
-	transition: none;
-}
-.no-gradients {
-	background: none;
-	background-color: #fff;
-}
+#next {left: auto; right: 0;}
     
 /* OBJECT PAGES */
 .object header {
