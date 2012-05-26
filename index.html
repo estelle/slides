@@ -815,6 +815,10 @@ SlideShow.prototype = {
     },
 	
 	addNotes: function(){
+		if(document.querySelector('.current textarea.mynotes')) {
+			document.querySelector('.current textarea.mynotes').classList.toggle('temphidden');
+			return;
+		}
 		var ta = document.createElement('textarea'),
 		     currentSlide = document.querySelector('.current section'),
 			 path = window.location.pathname,
@@ -841,7 +845,8 @@ SlideShow.prototype = {
 	
 	removeHidingClass: function(){
 		var paragraphToShow = document.querySelector('.current .temphidden');
-		paragraphToShow.classList.remove('temphidden');
+		if(paragraphToShow) {paragraphToShow.classList.remove('temphidden');}
+	
 	},
 	
     handleKeys: function(e) {
