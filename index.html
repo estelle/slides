@@ -386,6 +386,7 @@ div.example {
 }
 .slide.object {padding:0;}
 .object object {width: 100%; height: 100%;}
+.notes, .temphidden {display: none;}
 
 @media print {
 	.slide {
@@ -444,17 +445,21 @@ div.example {
  
   
 <div class="slide normal"> 
-<header><h1></h1></header> 
+<header><h1>Viewers can take notes</h1></header> 
 <section class="content"> 
-<pre contenteditable></pre>
+<pre contenteditable>Click on the #4 to show some notes stored with local storage</pre>
 </section>
 </div> 
  
   
 <div class="slide normal"> 
-<header><h1></h1></header> 
+<header><h1>You can show lines of text over time</h1></header> 
 <section class="content"> 
-<pre contenteditable></pre>
+<pre contenteditable>Click on the #2 to show more text</pre>
+<p class="temphidden">This used to be hidden</p>
+<p class="temphidden">This was also hidden</p>
+<p class="temphidden">This too</p>
+<p class="temphidden">and so was this</p>
 </section>
 </div> 
  
@@ -834,6 +839,12 @@ SlideShow.prototype = {
 		currentSlide.appendChild(ta);
 	},
 	
+	
+	removeHidingClass: function(){
+		var paragraphToShow = document.querySelector('.current .temphidden');
+		paragraphToShow.classList.remove('temphidden');
+	},
+	
     handleKeys: function(e) {
       // disable keys for these elements
       if (/^(input|textarea|pre|object)$/i.test(e.target.nodeName)) return;
@@ -849,9 +860,12 @@ SlideShow.prototype = {
 			 this.next(); break;
 		  case 50: // 2
 		  case 190: // 2
-			 this.showNotes(); break;
-	      case 52: // 4
+			 this.showNotes(); 
+			 this.removeHidingClass(); 
+			 break;
+	      case 52: // 4 (for taking notes with local storage (students)
 		     this.addNotes(); break;
+		     break;
     	}
     },
 	
